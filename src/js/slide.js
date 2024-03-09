@@ -8,7 +8,7 @@ class Slide {
       type: 'loop',
       pagination: false,
       arrows: false,
-      /* autoplay: true, */
+      autoplay: true,
       easing: 'cubic-bezier(.91,.03,0,1.22)',
     }).mount()
   }
