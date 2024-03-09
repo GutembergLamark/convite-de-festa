@@ -1,0 +1,19 @@
+.desktop-only {
+  display: none;
+}
+@media only screen and (min-width: 1000px) {
+  .desktop-only {
+    display: block;
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+@media only screen and (max-width: 999px) {
+  .mobile-only {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=utilities.css.map */

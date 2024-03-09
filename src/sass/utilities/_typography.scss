@@ -1,0 +1,55 @@
+@mixin _12-8rem(
+  $family: "Pacifico",
+  $height: clamp(19rem, 22.4vw, 22.4rem),
+  $align: center
+) {
+  font-size: clamp(12.8rem, 20.8vw, 20.8rem);
+  font-family: $family;
+  font-weight: 400;
+  line-height: $height;
+  text-align: $align;
+}
+
+@mixin _6-8rem($family: "Pacifico", $height: clamp(9rem, 11.9vw, 11.9rem)) {
+  font-size: clamp(6.8rem, 7.8vw, 7.8rem);
+  font-family: $family;
+  font-weight: 400;
+  line-height: $height;
+}
+
+@mixin _4-5rem(
+  $family: "Newsreader",
+  $height: clamp(4.5rem, 5.5vw, 5.5rem),
+  $align: center
+) {
+  font-size: clamp(4.5rem, 5.5vw, 5.5rem);
+  font-family: $family;
+  font-weight: 400;
+  line-height: $height;
+  text-align: center;
+}
+
+@mixin _2rem(
+  $family: "Inter",
+  $height: clamp(2.5rem, 2.85vw, 2.85rem),
+  $align: center,
+  $weight: 400
+) {
+  font-size: clamp(2rem, 2.3vw, 2.3rem);
+  font-family: $family;
+  font-weight: $weight;
+  line-height: $height;
+  text-align: center;
+}
+
+@mixin _1-3rem(
+  $family: "Inter",
+  $height: clamp(1.573rem, 1.85vw, 1.85rem),
+  $align: center
+) {
+  font-size: clamp(1.3rem, 1.5vw, 1.5rem);
+  font-family: $family;
+  font-weight: 700;
+  line-height: $height;
+  text-align: center;
+}
