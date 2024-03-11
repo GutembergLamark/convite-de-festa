@@ -99,6 +99,12 @@ button:hover {
   }
 }
 
+@media only screen and (min-width: 1000px) {
+  body {
+    overflow: hidden;
+  }
+}
+
 .i-slide {
   min-height: 100vh;
   padding: 6.5rem 0;
@@ -108,11 +114,19 @@ button:hover {
   .i-slide {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 5rem;
     overflow: hidden;
   }
-  .i-slide > div {
-    flex: 1;
+  .i-slide section {
+    display: flex;
+    align-items: center;
+  }
+  .i-slide section > div:first-of-type {
+    align-self: flex-start;
+  }
+  .i-slide article {
+    margin-top: 15rem;
   }
 }
 .i-slide__title {
@@ -125,7 +139,7 @@ button:hover {
   margin: 0 auto;
   position: relative;
   padding-right: clamp(5.5rem, 7.2vw, 7.2rem);
-  margin-bottom: clamp(3.4rem, 9.5vw, 9.5rem);
+  margin-bottom: clamp(3.4rem, 6.5vw, 6.5rem);
   z-index: 1;
 }
 @media only screen and (min-width: 1000px) {
@@ -163,18 +177,13 @@ button:hover {
   position: relative;
   width: max-content;
   margin: 0 auto clamp(4.3rem, 5vw, 5rem);
-  position: relative;
 }
 @media only screen and (min-width: 1000px) {
   .i-slide__image-box {
     display: flex;
     flex-flow: column;
     align-items: center;
-  }
-}
-@media only screen and (min-width: 1450px) {
-  .i-slide__image-box {
-    margin: 0 -15rem;
+    margin-left: -3rem;
   }
 }
 .i-slide__image-box::before {
@@ -191,9 +200,17 @@ button:hover {
   -webkit-box-shadow: 0px 0px 100px 45px #fff;
   -moz-box-shadow: 0px 0px 100px 45px #fff;
 }
+@media only screen and (min-width: 1000px) {
+  .i-slide__image-box::before {
+    top: 50%;
+    width: 20rem;
+    height: 20rem;
+  }
+}
 .i-slide__image-box::after {
   content: "";
   width: calc(100% - 8rem);
+  max-width: 25rem;
   height: 0;
   border-radius: 50%;
   position: absolute;
@@ -209,32 +226,43 @@ button:hover {
   position: relative;
   z-index: 10;
 }
-.i-slide__image-box div:last-child {
+.i-slide__image-box > picture img {
+  max-height: 60rem;
+}
+.i-slide__image-box div:last-of-type {
   position: absolute;
-  top: 50%;
+  top: 53%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: max-content;
   z-index: 10;
 }
-.i-slide__image-box div:last-child picture {
+.i-slide__image-box div:last-of-type picture {
   display: block;
   width: max-content;
   margin: 0 auto -0.5rem;
 }
 @media only screen and (min-width: 1000px) {
-  .i-slide__image-box div:last-child picture {
+  .i-slide__image-box div:last-of-type picture {
     width: 85%;
   }
 }
-.i-slide__image-box div:last-child p {
-  font-size: clamp(4.5rem, 5.5vw, 5.5rem);
+.i-slide__image-box div:last-of-type p {
+  font-size: clamp(4.5rem, 4.6vw, 4.6rem);
   font-family: "Newsreader";
   font-weight: 400;
-  line-height: clamp(4.5rem, 5.5vw, 5.5rem);
+  line-height: clamp(4.5rem, 4.6vw, 4.6rem);
   text-align: center;
 }
-.i-slide__image-box div:last-child span {
+.i-slide__image-box div:last-of-type p.font-small {
+  font-size: 3rem;
+}
+@media only screen and (min-width: 1000px) {
+  .i-slide__image-box div:last-of-type p.font-small {
+    font-size: 4.6rem;
+  }
+}
+.i-slide__image-box div:last-of-type span {
   font-size: clamp(1.3rem, 1.5vw, 1.5rem);
   font-family: "Inter";
   font-weight: 700;
@@ -243,10 +271,10 @@ button:hover {
   display: block;
   margin: 0 auto;
 }
-.i-slide__image-box div:last-child p, .i-slide__image-box div:last-child span {
+.i-slide__image-box div:last-of-type p, .i-slide__image-box div:last-of-type span {
   color: #313526;
 }
-.i-slide > p, .i-slide > div > p {
+.i-slide > p, .i-slide > section > div > p, .i-slide > article > p {
   font-size: clamp(2rem, 2.3vw, 2.3rem);
   font-family: "Inter";
   font-weight: 400;
@@ -256,8 +284,15 @@ button:hover {
   position: relative;
   max-width: 28rem;
 }
-.i-slide > p:not(:first-child), .i-slide > div > p:not(:first-child) {
-  margin: clamp(2.6rem, 3.8vw, 3.8rem) auto;
+.i-slide > p > span, .i-slide > section > div > p > span, .i-slide > article > p > span {
+  display: block;
+  height: 2rem;
+}
+.i-slide > p:not(:first-child), .i-slide > section > div > p:not(:first-child), .i-slide > article > p:not(:first-child) {
+  margin: clamp(2.6rem, 2.8vw, 2.8rem) auto;
+}
+.i-slide > article > p {
+  max-width: 29.1rem;
 }
 .i-slide__details-1 {
   position: absolute;
@@ -283,6 +318,48 @@ button:hover {
 .i-slide__details-3 {
   position: absolute;
   bottom: 0;
+  right: 0;
+}
+.i-slide__details-4 {
+  position: absolute;
+  top: 5rem;
+  right: -15rem;
+}
+.i-slide__details-4.top {
+  top: -8rem;
+  right: -10rem;
+}
+.i-slide__details-4.right {
+  right: -10rem;
+}
+.i-slide__details-5 {
+  position: absolute;
+}
+.i-slide__details-5.bottom {
+  bottom: 0;
+  left: 0;
+}
+.i-slide__details-5.right {
+  left: initial;
+  right: 0;
+}
+.i-slide__details-6 {
+  position: absolute;
+  bottom: 0;
+}
+.i-slide__details-6.right {
+  right: 0;
+}
+.i-slide__details-6.left {
+  left: 0;
+}
+.i-slide__details-7 {
+  position: absolute;
+}
+.i-slide__details-7.top {
+  top: 0;
+}
+.i-slide__details-7.right {
   right: 0;
 }
 .i-slide--orange {
@@ -318,7 +395,8 @@ button:hover {
   z-index: 1;
   position: relative;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1490196078);
-  margin-top: clamp(2.6rem, 3.8vw, 3.8rem);
+  margin-top: 2.6rem;
+  width: max-content;
 }
 .btn--orange {
   background: linear-gradient(91.23deg, #eb7446 -7.38%, #a42f00 172.25%);

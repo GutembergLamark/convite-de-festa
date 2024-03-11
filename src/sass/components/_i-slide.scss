@@ -6,11 +6,21 @@
   @media only screen and (min-width: 1000px) {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0 5rem;
     overflow: hidden;
 
-    & > div {
-      flex: 1;
+    & section {
+      display: flex;
+      align-items: center;
+
+      & > div:first-of-type {
+        align-self: flex-start;
+      }
+    }
+
+    & article {
+      margin-top: 15rem;
     }
   }
 
@@ -20,7 +30,7 @@
     margin: 0 auto;
     position: relative;
     padding-right: clamp(5.5rem, 7.2vw, 7.2rem);
-    margin-bottom: clamp(3.4rem, 9.5vw, 9.5rem);
+    margin-bottom: clamp(3.4rem, 6.5vw, 6.5rem);
     z-index: 1;
 
     @media only screen and (min-width: 1000px) {
@@ -53,16 +63,12 @@
     position: relative;
     width: max-content;
     margin: 0 auto clamp(4.3rem, 5vw, 5rem);
-    position: relative;
 
     @media only screen and (min-width: 1000px) {
       display: flex;
       flex-flow: column;
       align-items: center;
-    }
-
-    @media only screen and (min-width: 1450px) {
-      margin: 0 -15rem;
+      margin-left: -3rem;
     }
 
     &::before {
@@ -78,11 +84,18 @@
       box-shadow: 0px 0px 100px 45px $white;
       -webkit-box-shadow: 0px 0px 100px 45px $white;
       -moz-box-shadow: 0px 0px 100px 45px $white;
+
+      @media only screen and (min-width: 1000px) {
+        top: 50%;
+        width: 20rem;
+        height: 20rem;
+      }
     }
 
     &::after {
       content: "";
       width: calc(100% - 8rem);
+      max-width: 25rem;
       height: 0;
       border-radius: 50%;
       position: absolute;
@@ -98,11 +111,15 @@
     & > picture {
       position: relative;
       z-index: 10;
+
+      & img {
+        max-height: 60rem;
+      }
     }
 
-    & div:last-child {
+    & div:last-of-type {
       position: absolute;
-      top: 50%;
+      top: 53%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: max-content;
@@ -120,6 +137,14 @@
 
       & p {
         @include _4-5rem;
+
+        &.font-small {
+          font-size: 3rem;
+
+          @media only screen and (min-width: 1000px) {
+            font-size: 4.6rem;
+          }
+        }
       }
 
       & span {
@@ -136,15 +161,25 @@
   }
 
   & > p,
-  & > div > p {
+  & > section > div > p,
+  & > article > p {
     @include _2rem;
     z-index: 10;
     position: relative;
     max-width: 28rem;
 
-    &:not(:first-child) {
-      margin: clamp(2.6rem, 3.8vw, 3.8rem) auto;
+    & > span {
+      display: block;
+      height: 2rem;
     }
+
+    &:not(:first-child) {
+      margin: clamp(2.6rem, 2.8vw, 2.8rem) auto;
+    }
+  }
+
+  & > article > p {
+    max-width: 29.1rem;
   }
 
   &__details-1 {
@@ -178,6 +213,60 @@
     position: absolute;
     bottom: 0;
     right: 0;
+  }
+
+  &__details-4 {
+    position: absolute;
+    top: 5rem;
+    right: -15rem;
+
+    &.top {
+      top: -8rem;
+      right: -10rem;
+    }
+
+    &.right {
+      right: -10rem;
+    }
+  }
+
+  &__details-5 {
+    position: absolute;
+
+    &.bottom {
+      bottom: 0;
+      left: 0;
+    }
+
+    &.right {
+      left: initial;
+      right: 0;
+    }
+  }
+
+  &__details-6 {
+    position: absolute;
+    bottom: 0;
+
+    &.right {
+      right: 0;
+    }
+
+    &.left {
+      left: 0;
+    }
+  }
+
+  &__details-7 {
+    position: absolute;
+
+    &.top {
+      top: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
   }
 
   &--orange {
