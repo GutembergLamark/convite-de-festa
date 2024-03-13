@@ -231,16 +231,22 @@ button:hover {
 }
 .i-slide__image-box div:last-of-type {
   position: absolute;
-  top: 53%;
+  top: 66%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   width: max-content;
   z-index: 10;
+}
+@media only screen and (min-width: 1000px) {
+  .i-slide__image-box div:last-of-type {
+    top: 70%;
+  }
 }
 .i-slide__image-box div:last-of-type picture {
   display: block;
   width: max-content;
   margin: 0 auto -0.5rem;
+  position: relative;
 }
 @media only screen and (min-width: 1000px) {
   .i-slide__image-box div:last-of-type picture {
@@ -248,7 +254,7 @@ button:hover {
   }
 }
 .i-slide__image-box div:last-of-type p {
-  font-size: clamp(4.5rem, 4.6vw, 4.6rem);
+  font-size: clamp(3.7rem, 4vw, 4.5rem);
   font-family: "Newsreader";
   font-weight: 400;
   line-height: clamp(4.5rem, 4.6vw, 4.6rem);

@@ -119,16 +119,21 @@
 
     & div:last-of-type {
       position: absolute;
-      top: 53%;
+      top: 66%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       width: max-content;
       z-index: 10;
+
+      @media only screen and (min-width: 1000px) {
+        top: 70%;
+      }
 
       & picture {
         display: block;
         width: max-content;
         margin: 0 auto -0.5rem;
+        position: relative;
 
         @media only screen and (min-width: 1000px) {
           width: 85%;
